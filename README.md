@@ -1,11 +1,5 @@
 # TD et TP IPI JVA320 - Application web Java (Servlet, Spring MVC, Thymeleaf)
 
-Ce projet est un début d'application web de gestion de salariés aide à domiciles.
-Il permet de réaliser les exercices en séance (TD) et exercices de l'évaluation (TP) du cours.
-L'énoncé de ces exercices est dans la page web accessible à http://localhost:8080/home.html
-une fois l'application démarrée ou sinon [src/main/resources/templates/home.html].
-L'énoncé d'un exercice de TP est préfixé par "TP". Les exercices optionnels sont aussi préfixés par "BONUS".
-
 ## Pré-requis
 
 - Avoir installé un IDE :
@@ -40,21 +34,7 @@ L'énoncé d'un exercice de TP est préfixé par "TP". Les exercices optionnels 
 
 ## Créer la base de données
 
-### H2 (par défaut)
-
-Par défaut, l'application se lance avec la base de données embarquée en mémoire H2.
-Comme il n'y a rien à faire pour cela, il est conseillé de commencer comme cela.
-L'inconvénient, outre que cela est moins réaliste, est que les données rajoutées
-disparaissent à chaque démarrage, à part quelques données de test rajoutées
-à l'initialisation (par  
-
-### PostgreSQL (à créer)
-
-Installer PostgreSQL : https://dbeaver.io/download/
-
-Exécuter les lignes de commande plus bas,
-- soit dans un outil à installer tel DBeaver : https://dbeaver.io/download/
-- soit dans un terminal.
+### PostgreSQL
 
 Créer l'utilisateur "ipi" :
 
@@ -74,9 +54,7 @@ Vérifier que l'utilisateur créé peut bien se connecter à cette base :
 
 	$> psql -U ipi ipi_jva320_web -h localhost
 
-Configurer l'application pour s'en servir :
-- dans ```main/resources/application.properties```, décommenter les lignes sous "postgresql - clean setup" et commenter les lignes à propos de H2.
-- dans ```pom.xml```, commenter la dépendance à H2 (ou la passer en ```<scope>test</scope>```).
+Configurer l'application pour s'en servir : dans ```main/resources/application.properties```, décommenter les lignes sous "postgresql - clean setup".
 
 
 ## Exécution
@@ -87,10 +65,7 @@ lancer la classe com.ipi.jva320.Jva320Application
   - Eclipse : clic droit > Run as application),
 - avec maven (IDE ou ligne de commande) : ```mvn spring-boot:run```
 
-Puis pointer le navigateur web à http://localhost:8080/ , ou pour afficher une page sans rendu Thymeleaf par exemple http://localhost:8080/home.html (qui contient l'énoncé des exercices à réaliser).
-
-FAQ :
-- erreur au démarrage "Cannot find template location: classpath:/templates/" => dans IntelliJ : clic droit sur projet > Add as Maven project
+Puis pointer le navigateur web à http://localhost:8080/ , ou pour afficher une page sans rendu Thymeleaf par exemple http://localhost:8080/home.html .
 
 
 ## Développement
